@@ -17,17 +17,50 @@ liegen die Grundlagen (Recherche, Konzept) und der Build-Auftrag.
 Gebaut (TanStack Start + TypeScript + Tailwind + shadcn/ui):
 
 - 8 Seiten: Startseite, Zimmer & Preise, Ferienwohnungen, Unser Haus,
-  Mit Hund im Kater, Umgebung & Anfahrt, Ausflüge, Kontakt & Anfrage
-- Rechtstexte `/impressum` und `/datenschutz` als markierte Entwürfe (`noindex`)
+  Mit Hund im Kater, Umgebung & Anfahrt, Ausfluege, Kontakt & Anfrage
+- Rechtstexte `/impressum` und `/datenschutz` als markierte Entwuerfe (`noindex`)
 - „Welches Zimmer passt zu mir?"-Quiz, Anfrageformular mit Saison- und
   Richtpreisberechnung, Saison-Banner, Direktbuchungs-Vorteilsbox,
   Bewertungsbereich, Nachbarschaftskarte, DE/EN-Umschalter
-- `PLACEHOLDERS.md` im Lovable-Projekt listet jeden Platzhalter und jeden vor
-  dem Livegang zu klärenden Punkt
+- Echte Hotelfotos (vom Inhaber hochgeladen), waermer gegradet und
+  motivgerecht zugeschnitten, als WebP mit `srcset` ausgeliefert
+
+### Gestaltung
+
+Orientiert an refineryhotelnewyork.com, aber bewusst waermer gehalten:
+uebernommen sind Struktur und Typo-Rhythmus (Versalien mit weiter Laufweite in
+Navigation, Ueberschriften und Buttons; rechteckige Buttons; Vollbild-Hero;
+abwechselnde Bild-/Text-Baender; Haarlinien und Kapitaelchen-Eyebrows).
+Statt kaltem Schwarz-Weiss traegt die Seite die Farben des Logos.
+
+| Rolle | Wert | Herkunft |
+|---|---|---|
+| Akzent | `#1E4620` Forstgruen | Schriftzug im Logo |
+| Dunkelton (Text, dunkle Baender, Hero-Verlauf) | `#3D2B22` Warmbraun | Katze im Logo |
+| Flaeche | Warmes Off-White / Leinen, Sand als zweite Flaeche | |
+
+Die Frakturschrift bleibt **ausschliesslich im Logo** — nicht in Ueberschriften
+oder Fliesstext: sie ist in laengeren Texten schwer lesbar und truege eine
+historische Konnotation, die dem familiengefuehrten Haus entgegenwirkt.
+
+### Logo-Animation
+
+Das Logo ist als zwei Ebenen aufgebaut (`src/assets/logo-cat.svg` und
+`src/assets/logo-wordmark.svg`), damit die Katze eigenstaendig animierbar ist.
+Auf der Startseite laeuft sie im Header an ihre Position im Logo, der Schriftzug
+folgt kurz darauf. Regeln:
+
+- Laeuft **einmal pro Browser-Sitzung** (`sessionStorage`), nicht bei jedem
+  Seitenwechsel
+- `prefers-reduced-motion: reduce` springt ohne Bewegung direkt in den Endzustand
+- Der Platz ist von Anfang an reserviert, es gibt keinen Layout-Sprung
+- Auf allen Unterseiten steht das Logo unbewegt
+
+Austausch der Originaldateien = reiner Dateitausch, ohne Codeaenderung.
 
 Noch offen (Backlog, siehe `docs/lovable-brief.md`): echter E-Mail-Versand des
-Anfrageformulars, Live-Verfügbarkeit, Admin-Dashboard, Google-Places-Feed,
-360°-Rundgänge, englische Fließtexte, selbst gehostete Schrift und Bilder.
+Anfrageformulars, Live-Verfuegbarkeit, Admin-Dashboard, Google-Places-Feed,
+360-Grad-Rundgaenge, englische Fliesstexte, selbst gehostete Schrift.
 
 ## Inhalt dieses Repos
 
@@ -48,6 +81,10 @@ dem Inhaber geklärt werden:
 - **Zimmerpreise** — Recherchestand, vor Veröffentlichung verifizieren.
 - **Ferienwohnungspreise** — fehlen komplett, stehen aktuell als
   „Preis auf Anfrage".
+- **Logodateien** — im Projekt liegen nachgebaute SVG-Platzhalter. Die
+  Originaldateien des Hauses muessen `src/assets/logo-cat.svg` und
+  `src/assets/logo-wordmark.svg` ersetzen; die Hexwerte `#3D2B22` und
+  `#1E4620` sind von einem Screenshot abgelesen und am Original zu pruefen.
 - **Bildrechte** — die 34 Originalfotos der bestehenden Website vor
   Weiterverwendung freigeben lassen (v. a. Umgebungsfotos Rostock/Stralsund).
 - **Kettenkasten-Kooperation** — bisher nur Idee. Auf der Seite steht das
