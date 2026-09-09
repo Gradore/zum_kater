@@ -12,6 +12,23 @@ Umsetzung des Website-Relaunches als Lovable-Projekt (React + TypeScript + Tailw
 Der Anwendungscode liegt im Lovable-Projekt, nicht in diesem Repository. Hier
 liegen die Grundlagen (Recherche, Konzept) und der Build-Auftrag.
 
+## Stand der Umsetzung
+
+Gebaut (TanStack Start + TypeScript + Tailwind + shadcn/ui):
+
+- 8 Seiten: Startseite, Zimmer & Preise, Ferienwohnungen, Unser Haus,
+  Mit Hund im Kater, Umgebung & Anfahrt, Ausflüge, Kontakt & Anfrage
+- Rechtstexte `/impressum` und `/datenschutz` als markierte Entwürfe (`noindex`)
+- „Welches Zimmer passt zu mir?"-Quiz, Anfrageformular mit Saison- und
+  Richtpreisberechnung, Saison-Banner, Direktbuchungs-Vorteilsbox,
+  Bewertungsbereich, Nachbarschaftskarte, DE/EN-Umschalter
+- `PLACEHOLDERS.md` im Lovable-Projekt listet jeden Platzhalter und jeden vor
+  dem Livegang zu klärenden Punkt
+
+Noch offen (Backlog, siehe `docs/lovable-brief.md`): echter E-Mail-Versand des
+Anfrageformulars, Live-Verfügbarkeit, Admin-Dashboard, Google-Places-Feed,
+360°-Rundgänge, englische Fließtexte, selbst gehostete Schrift und Bilder.
+
 ## Inhalt dieses Repos
 
 | Datei | Inhalt |
