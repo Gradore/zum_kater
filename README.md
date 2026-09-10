@@ -5,9 +5,16 @@ Umsetzung des Website-Relaunches als Lovable-Projekt (React + TypeScript + Tailw
 ## Lovable-Projekt
 
 - **Editor:** https://lovable.dev/projects/18269eb7-2032-402a-8322-ef3c959ecd51
-- **Live-Preview:** https://id-preview--18269eb7-2032-402a-8322-ef3c959ecd51.lovable.app
+- **Öffentlich live:** https://zum-kater-heimat.lovable.app (seit 10.09.2026 bewusst öffentlich geschaltet)
+- **Vorschau (Editor-Preview):** https://id-preview--18269eb7-2032-402a-8322-ef3c959ecd51.lovable.app
 - **Workspace:** Manuel's Lovable
 - **Projekt-ID:** `18269eb7-2032-402a-8322-ef3c959ecd51`
+
+**Wichtig:** Die Seite ist öffentlich erreichbar, enthält aber weiterhin bewusst
+unbestätigten Inhalt (siehe „Vor dem Livegang zu klären" unten und
+`PLACEHOLDERS.md` im Lovable-Projekt) — u. a. eine geratene E-Mail-Adresse,
+Recherchestand-Preise, Platzhalter-Bewertungszitate und ein Entwurfs-Impressum.
+Vor einem echten Livegang unter der finalen Domain müssen diese Punkte geklärt sein.
 
 Der Anwendungscode liegt im Lovable-Projekt, nicht in diesem Repository. Hier
 liegen die Grundlagen (Recherche, Konzept) und der Build-Auftrag.
@@ -23,32 +30,60 @@ Gebaut (TanStack Start + TypeScript + Tailwind + shadcn/ui):
   Richtpreisberechnung, Saison-Banner, Direktbuchungs-Vorteilsbox,
   Bewertungsbereich, Nachbarschaftskarte, DE/EN-Umschalter
 - Echte Hotelfotos (vom Inhaber hochgeladen), waermer gegradet und
-  motivgerecht zugeschnitten, als WebP mit `srcset` ausgeliefert
+  motivgerecht zugeschnitten, als WebP/AVIF mit `srcset` ausgeliefert
+- Kompakte Verfuegbarkeitsanfrage im Hero (Anreise/Abreise/Gaeste), reicht die
+  Werte an das Kontaktformular durch — **keine** echte Verfuegbarkeitspruefung,
+  das ist auf der Seite auch so beschriftet
+- Sticky Quick-Action-Leiste im Header: Telefon, WhatsApp (vorausgefuellte
+  Nachricht), „Zimmer buchen", „Hotel-Kontakt speichern" (generiert clientseitig
+  eine `.vcf` aus den echten Stammdaten). Signal und Instagram sind mangels
+  bestaetigter Kontaktdaten bewusst nur als Hinweis bzw. deaktiviert angezeigt,
+  nicht als kaputte Links.
 
-### Gestaltung
+### Gestaltung — zweiter Richtungswechsel (10.09.2026)
 
-Orientiert an refineryhotelnewyork.com, aber bewusst waermer gehalten:
-uebernommen sind Struktur und Typo-Rhythmus (Versalien mit weiter Laufweite in
-Navigation, Ueberschriften und Buttons; rechteckige Buttons; Vollbild-Hero;
-abwechselnde Bild-/Text-Baender; Haarlinien und Kapitaelchen-Eyebrows).
-Statt kaltem Schwarz-Weiss traegt die Seite die Farben des Logos.
+Auf ausdruecklichen Wunsch wurde die zuvor am Logo ausgerichtete warme Palette
+(Warmbraun/Forstgruen, siehe vorherige Fassung dieses Abschnitts) verworfen
+zugunsten einer dunklen, hochwertigen Anthrazit-Basis mit Gold/Tuerkis/Rot als
+Akzenten:
 
-| Rolle | Wert | Herkunft |
-|---|---|---|
-| Akzent | `#1E4620` Forstgruen | Schriftzug im Logo |
-| Dunkelton (Text, dunkle Baender, Hero-Verlauf) | `#3D2B22` Warmbraun | Katze im Logo |
-| Flaeche | Warmes Off-White / Leinen, Sand als zweite Flaeche | |
+| Rolle | Wert |
+|---|---|
+| Basisflaeche | Anthrazit `#111113`–`#161618` |
+| Text auf dunkel | Warmes Off-White |
+| Akzent (CTAs, Badges) | Gold `#C9A24B` |
+| Akzent (Hinweise) | Meeres-Tuerkis `#2FB8AE` |
+| Akzent (Fehler/Warnung) | Rot `#B23A3A` |
 
-Die Frakturschrift bleibt **ausschliesslich im Logo** — nicht in Ueberschriften
-oder Fliesstext: sie ist in laengeren Texten schwer lesbar und truege eine
-historische Konnotation, die dem familiengefuehrten Haus entgegenwirkt.
+**Bewusst in Kauf genommen:** Das Logo (Warmbraun `#3D2B22` + Forstgruen
+`#1E4620`, transparent) wurde unveraendert gelassen und kontrastiert jetzt
+gegen die dunkle Flaeche, statt mit ihr zu harmonieren — im Header steht es
+deshalb auf einer eigenen hellen Flaeche fuer Lesbarkeit. Die
+Versalien-Typografie und der Aufbau (Vollbild-Hero, Haarlinien-Eyebrows,
+rechteckige Buttons) aus der vorherigen Refinery-Anlehnung blieben erhalten,
+nur die Farben wurden ausgetauscht. Der Dark-Mode-Schalter wechselt seither
+zwischen einem helleren und einem tieferen Anthrazit-Ton, nicht mehr zwischen
+hell und dunkel.
+
+**Bewusst nicht uebernommen aus dem breiteren Auftrag vom 10.09.2026:** ein
+hoteleigenes italienisches Restaurant „Ristorante im Kater". Laut Recherche hat
+das Haus kein eigenes Mittags-/Abendrestaurant und empfiehlt stattdessen extern
+das Restaurant „Kettenkasten" — das wurde beibehalten, nicht durch eine
+erfundene Amenity ersetzt.
+
+Als Backlog fuer eine spaetere Runde vermerkt (siehe `roadmap.md` im
+Lovable-Projekt): Galerie/Lightbox mit Filtern, Jobs-Seite, schwebender
+Audioplayer, Footer-Besucherzaehler.
 
 ### Logo-Animation
 
 Das Logo ist als zwei Ebenen aufgebaut (`src/assets/logo-cat.svg` und
 `src/assets/logo-wordmark.svg`), damit die Katze eigenstaendig animierbar ist.
-Auf der Startseite laeuft sie im Header an ihre Position im Logo, der Schriftzug
-folgt kurz darauf. Regeln:
+Am 10.09.2026 wurde das echte Original-Logo geliefert; seine Formen wurden
+verlustfrei in die beiden SVG-Ebenen nachgezeichnet, die Farben auf die
+bestaetigten Markenwerte (`#3D2B22` / `#1E4620`) vereinheitlicht. Auf der
+Startseite laeuft die Katze im Header an ihre Position, der Schriftzug folgt
+kurz darauf:
 
 - Laeuft **einmal pro Browser-Sitzung** (`sessionStorage`), nicht bei jedem
   Seitenwechsel
@@ -56,11 +91,9 @@ folgt kurz darauf. Regeln:
 - Der Platz ist von Anfang an reserviert, es gibt keinen Layout-Sprung
 - Auf allen Unterseiten steht das Logo unbewegt
 
-Austausch der Originaldateien = reiner Dateitausch, ohne Codeaenderung.
-
 Noch offen (Backlog, siehe `docs/lovable-brief.md`): echter E-Mail-Versand des
 Anfrageformulars, Live-Verfuegbarkeit, Admin-Dashboard, Google-Places-Feed,
-360-Grad-Rundgaenge, englische Fliesstexte, selbst gehostete Schrift.
+360-Grad-Rundgaenge, englische Fliesstexte.
 
 ## Inhalt dieses Repos
 
