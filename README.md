@@ -23,8 +23,9 @@ liegen die Grundlagen (Recherche, Konzept) und der Build-Auftrag.
 
 Gebaut (TanStack Start + TypeScript + Tailwind + shadcn/ui):
 
-- 8 Seiten: Startseite, Zimmer & Preise, Ferienwohnungen, Unser Haus,
-  Mit Hund im Kater, Umgebung & Anfahrt, Ausfluege, Kontakt & Anfrage
+- 7 Seiten: Startseite, Zimmer & Preise, Unser Haus, Mit Hund im Kater,
+  Umgebung & Anfahrt, Ausfluege, Kontakt & Anfrage (die Ferienwohnungs-Seite
+  wurde am 17.09.2026 auf ausdruecklichen Wunsch entfernt)
 - Rechtstexte `/impressum` und `/datenschutz` als markierte Entwuerfe (`noindex`)
 - „Welches Zimmer passt zu mir?"-Quiz, Anfrageformular mit Saison- und
   Richtpreisberechnung, Saison-Banner, Direktbuchungs-Vorteilsbox,
@@ -65,11 +66,24 @@ nur die Farben wurden ausgetauscht. Der Dark-Mode-Schalter wechselt seither
 zwischen einem helleren und einem tieferen Anthrazit-Ton, nicht mehr zwischen
 hell und dunkel.
 
-**Bewusst nicht uebernommen aus dem breiteren Auftrag vom 10.09.2026:** ein
-hoteleigenes italienisches Restaurant „Ristorante im Kater". Laut Recherche hat
-das Haus kein eigenes Mittags-/Abendrestaurant und empfiehlt stattdessen extern
-das Restaurant „Kettenkasten" — das wurde beibehalten, nicht durch eine
-erfundene Amenity ersetzt.
+**Korrektur vom 17.09.2026:** Der Inhaber hat bestaetigt, dass es tatsaechlich
+ein hoteleigenes Restaurant gibt: **„il Gatto am Kater"** (italienisch, Teil des
+Hotels). Die vorherige Aussage in diesem Abschnitt ("kein eigenes Restaurant")
+war fuer den damaligen Recherchestand richtig, ist inzwischen aber ueberholt.
+Wichtig ist die Unterscheidung, die jetzt konsequent durchgehalten wird:
+
+| Restaurant | Beziehung zum Hotel |
+|---|---|
+| **il Gatto am Kater** | Hauseigen — echte Amenity, eigene `Restaurant`-Entitaet im Schema.org-Graph (`containsPlace`/`containedInPlace` mit dem Hotel verknuepft) |
+| **Kettenkasten am Alten Strom** | Weiterhin unabhaengig und extern — nur persoenliche Nachbarschaftsempfehlung, keine Kooperation, kein Paket, taucht bewusst **nicht** in den strukturierten Daten auf |
+
+Zu il Gatto liegen noch keine Oeffnungszeiten, Speisekarte oder Reservierungs-
+kontakt vor — das steht als `[TODO: vom Kunden]` in `PLACEHOLDERS.md` und wird
+auf der Seite bewusst nicht erfunden.
+
+Ein Zwischenschritt hatte versehentlich beide Restaurants als "gehoeren zu
+unserem Haus" dargestellt und damit Kettenkasten faelschlich vereinnahmt —
+das wurde noch am selben Tag korrigiert, sobald es auffiel.
 
 Als Backlog fuer eine spaetere Runde vermerkt (siehe `roadmap.md` im
 Lovable-Projekt): Galerie/Lightbox mit Filtern, Jobs-Seite, schwebender
